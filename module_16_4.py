@@ -39,8 +39,7 @@ async def create_user(
 async def update_user(
         user_id: Annotated[int, Path()],
         username: Annotated[str, Path(min_length=5, max_length=20, description="Введите имя пользователя")],
-        age: Annotated[int, Path(ge=18, le=120, description="Введите возраст")]
-):
+        age: Annotated[int, Path(ge=18, le=120, description="Введите возраст")]):
     for user in users:  # перебираем список users
         if user.id == user_id:
             user.username = username
