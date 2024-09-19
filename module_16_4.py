@@ -24,8 +24,7 @@ async def get_all_list():
 @app.post("/user/{username}/{age}")
 async def create_user(
         username: Annotated[str, Path(min_length=5, max_length=20, description="Введите имя пользователя")],
-        age: Annotated[int, Path(ge=18, le=120, description="Введите возраст")]
-):
+        age: Annotated[int, Path(ge=18, le=120, description="Введите возраст")]):
     if not users:  # Если список users пустой
         user_id = 1
     else:
